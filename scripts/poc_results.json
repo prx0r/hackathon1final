@@ -1,0 +1,39 @@
+{
+  "baseline": {
+    "ai-software": {
+      "total": 412,
+      "count": 15,
+      "digest": "sha256:929ab4ec103b4f0a38bd591cb615adcdb7a1b69977d97b913d95673d78eafa4c"
+    },
+    "open-science": {
+      "total": 852,
+      "count": 15,
+      "digest": "sha256:4bca1a8a0b5b051be3a60eaae5dd299fa96abc46e4159836915a4346889db919"
+    },
+    "nlp-tools": {
+      "total": 125118,
+      "count": 15,
+      "digest": "sha256:7d4de110dcc19094a365cd9c04bec1dd4865c122a906cdb536a9ae53aa664eaa"
+    }
+  },
+  "entities_tracked": 45,
+  "claims": 6,
+  "changes_applied": 10,
+  "change_scenarios": {
+    "affiliation_expansion": 5,
+    "dedup_merge": 2,
+    "new_products": 3
+  },
+  "impact": {
+    "affected": 2,
+    "unaffected": 4,
+    "total": 6
+  },
+  "obligations": 2,
+  "compute_savings": {
+    "naive_cost": 0.006,
+    "smart_cost": 0.002,
+    "saved": 0.004,
+    "saved_pct": 66.66666666666666
+  }
+}
