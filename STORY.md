@@ -10,7 +10,7 @@ We started by trying to build "Git for knowledge graphs." That was wrong — Ope
 
 We then searched for the actual gap. OpenAIRE continuously validates the Graph. Alien makes it agent-accessible. But nobody tracks what agents derived from it.
 
-The breakthrough: applying existing Pāṭala primitives (append-only events, content hashing, blast-radius propagation) to this general problem.
+The breakthrough: applying existing Aletheia primitives (append-only events, content hashing, blast-radius propagation) to this general problem.
 
 ## The insight
 
@@ -18,7 +18,7 @@ The breakthrough: applying existing Pāṭala primitives (append-only events, co
 
 OpenAIRE's August 2026 release removed 318.7M redundant relations. Any agent conclusion depending on those relations is now potentially wrong. Nobody told the agent.
 
-Pāṭala asks: "Did any of them matter to your research?"
+Aletheia asks: "Did any of them matter to your research?"
 
 ## What others can reuse
 

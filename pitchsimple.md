@@ -17,13 +17,13 @@
 
       [Show: OpenAIRE changelog numbers]
 
-0:30  "Pāṭala recorded which observations the agent
+0:30  "Aletheia recorded which observations the agent
       used. It knows which conclusions depend on
       which records."
 
       [Show: dependency graph — 19 dependencies]
 
-0:45  "After the update, Pāṭala checks each dependency.
+0:45  "After the update, Aletheia checks each dependency.
       11 still present. 8 gone."
 
       [Show: impact report]
@@ -31,13 +31,13 @@
       "4 conclusions unaffected — no action needed."
       "2 conclusions affected — proof obligation emitted."
 
-1:00  "Without Pāṭala: rerun everything.
-      With Pāṭala: rerun 2 out of 6."
+1:00  "Without Aletheia: rerun everything.
+      With Aletheia: rerun 2 out of 6."
 
       [Show: compute savings]
 
 1:15  "Alien makes research intelligence accessible.
-      Pāṭala makes what agents learn maintainable."
+      Aletheia makes what agents learn maintainable."
 
 1:30  "When evidence changes, know what to recheck."
 ```
@@ -45,7 +45,7 @@
 ## The pitch (3 sentences)
 
 > OpenAIRE tells agents what research says now.
-> Pāṭala tells them whether what they concluded before still follows.
+> Aletheia tells them whether what they concluded before still follows.
 > When evidence changes, know what to recheck.
 
 ## The tagline

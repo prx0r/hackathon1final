@@ -1,4 +1,4 @@
-# AGENTS.md — Pāṭala Research CI
+# AGENTS.md — Aletheia
 
 *2026-08-19 · Governing rules for this project.*
 
@@ -14,7 +14,7 @@ A number with no content-addressed run record is theater.
 
 ## WHAT THIS PROJECT IS
 
-Pāṭala Research CI is a continuous verification layer for research built on evolving scholarly knowledge graphs. It tracks which OpenAIRE observations support which conclusions, detects when observations change, and emits proof obligations for affected conclusions.
+Aletheia is a continuous verification layer for research built on evolving scholarly knowledge graphs. It tracks which OpenAIRE observations support which conclusions, detects when observations change, and emits proof obligations for affected conclusions.
 
 ## HOW TO RUN
 

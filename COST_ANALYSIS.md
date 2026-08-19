@@ -20,7 +20,7 @@ Typical analysis (5 searches + synthesis):
 
 ## Agent Scale (100 agents, 10 analyses/day, 50 conclusions each)
 
-| Metric | Without Pāṭala | With Pāṭala (33%) | With Pāṭala (10%) |
+| Metric | Without Aletheia | With Aletheia (33%) | With Aletheia (10%) |
 |--------|---------------|-------------------|-------------------|
 | Reruns/year | 600,000 | 198,000 | 60,000 |
 | Cost (Sonnet) | $171,720 | $56,668 | $17,172 |
@@ -33,10 +33,10 @@ It's wrong conclusions acted upon:
 - Policy team uses stale dashboard
 - Committee makes decision based on wrong data
 - Cost: >>$100,000 per wrong decision
-- Pāṭala cost: ~$0.01 per check
+- Aletheia cost: ~$0.01 per check
 
 ## Key insight
 
-Pāṭala is not a compute optimizer. It's correctness infrastructure.
+Aletheia is not a compute optimizer. It's correctness infrastructure.
 
 As agents scale: compute savings are significant, correctness guarantees are existential.
