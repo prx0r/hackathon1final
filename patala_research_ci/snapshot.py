@@ -53,3 +53,9 @@ def snapshot_from_fetch(spec: QuerySpec, fetched: FetchResult, *, observed_at: s
 
 def fetch_snapshot(stack: OpenAIREStack, spec: QuerySpec) -> Snapshot:
     return snapshot_from_fetch(spec, stack.fetch(spec))
+def make_snapshot(query,items,relations=None,source_status='OK',source_error=None,provider='OpenAIRE',api_version='v3',header=None):
+    rels=list(relations or [])
+    body={'provider':provider,'api_version':api_version,'query':query.to_dict() if hasattr(query,'to_dict') else query,'source_status':source_status,'items':items,'relations':rels}
+    return Snapshot('snap:'+uuid.uuid4().hex[:12],provider,api_version,utc_now(),body['query'],source_status,source_error,items,rels,header or {},digest_json(body))
+def fetch_snapshot(stack,query):
+    r=stack.fetch(query); return make_snapshot(query,r.items,r.relations,r.status,r.error,'OpenAIRE',query.api_version,r.header)

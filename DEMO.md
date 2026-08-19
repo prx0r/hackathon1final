@@ -1,67 +1,70 @@
-# Aletheia — 90-Second Demo Script
+# Aletheia judge demo — 90 seconds
 
-## Setup
+## Goal
 
-Run the deterministic demo (no Docker needed):
+Demonstrate one thing: **when scholarly infrastructure changes, Aletheia distinguishes changes that matter to an agent's remembered conclusion from changes that do not.**
+
+## 0:00–0:12 — Hook
+
+Show three saved research conclusions, all green.
+
+> “This agent used OpenAIRE to build these conclusions yesterday. OpenAIRE improves continuously. Which of these answers still deserve to be trusted today?”
+
+Do not explain Merkle trees, RO-Crate, frozen plans, or the full internal schema here.
+
+## 0:12–0:25 — Agent evidence
+
+Show the bundled Alien/OpenAIRE trace or a live Alien query.
+
+> “Alien gives the agent structured OpenAIRE evidence. Aletheia binds the derived conclusions to the exact entities, fields, relations and query membership they used.”
+
+If a live Alien session is available, show only one or two calls. Do not spend the video scrolling through all 11 calls.
+
+## 0:25–0:48 — Three upstream changes
+
+Run:
 
 ```bash
-python3 -m aletheia.cli demo
+python -m patala_research_ci --workspace /tmp/aletheia-demo demo
 ```
 
-Or the live version with real OpenAIRE queries:
+Narrate the fixture:
 
-```bash
-python3 scripts/live_smoke.py
+1. a title was normalized;
+2. `IsCitedBy(A,B)` became `Cites(B,A)` — the same scholarly proposition represented on the active side;
+3. one genuine dataset-support relation disappeared, and a new product entered the tracked query.
+
+> “A raw JSON diff sees noise. Aletheia compares the meaning.”
+
+## 0:48–1:05 — Blast radius
+
+Point to the result:
+
+```text
+Dataset coverage   RECOMPUTE REQUIRED
+Citation path      CURRENT
+Access-right claim CURRENT
 ```
 
-## The script
+> “Exactly one conclusion needs work. The inverse citation migration is canonicalized away, and the unrelated title change cannot stale a claim that never depended on the title.”
 
-```
-0:00  "An AI agent used OpenAIRE to research software
-      in artificial intelligence. It concluded there are
-      175 products. That conclusion is stored in memory."
+## 1:05–1:20 — Revalidation
 
-      [SCREEN: agent stores "175 products" with dependencies]
+Show the dataset calculation:
 
-0:15  "OpenAIRE updated. 318 million relations were
-      restructured. Some of the products the agent
-      tracked are gone."
-
-      [SCREEN: OpenAIRE changelog — 318.7M relations removed]
-
-0:30  "Aletheia recorded which observations the agent
-      used. It knows which conclusions depend on
-      which records."
-
-      [SCREEN: dependency graph showing 10 tracked entities]
-
-0:45  "After the update, Aletheia checks each dependency.
-      8 still present. 2 gone."
-
-      [SCREEN: impact report]
-
-      "4 conclusions unaffected — no action needed."
-      "2 conclusions affected — proof obligation emitted."
-
-1:00  "Without Aletheia: rerun everything.
-      With Aletheia: rerun 2 out of 6."
-
-      [SCREEN: compute savings]
-
-1:15  "Alien makes research intelligence accessible.
-      Aletheia makes what agents learn maintainable."
-
-1:30  "When evidence changes, know what to recheck."
+```text
+baseline 2 / 3 = 66.7%  → supported
+current  1 / 4 = 25.0%  → unsupported
 ```
 
-## What NOT to include
+> “The affected claim gets a frozen proof obligation. The computable check reruns and produces a verification receipt. The conclusion changes because the evidence changed—not because an LLM guessed that it did.”
 
-- No orchestration
-- No cross-agent trust
-- No learning mechanisms
-- No future features
-- No complexity beyond the 3-step loop
+## 1:20–1:30 — Close
 
-## Principle
+Show the three claim cards again: two green, one updated.
 
-**Demo = proof. Pitch = vision. Never mix them.**
+> **“OpenAIRE makes scholarly knowledge machine-actionable. Alien makes agents operational. Aletheia makes autonomous knowledge maintainable.”**
+
+### Backup line
+
+> “Alien tells an agent what OpenAIRE says now. Aletheia tells it which things it learned before still follow.”
