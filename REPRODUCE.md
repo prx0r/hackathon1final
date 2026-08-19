@@ -5,29 +5,37 @@
 - Python 3.10+
 - httpx (only dependency)
 
-## Deterministic demo (no Docker)
+## Deterministic demo
 
 ```bash
 python3 -m aletheia.cli demo
 ```
 
-## Live certification (Docker required)
+## Live OpenAIRE query
 
 ```bash
-./scripts/certify.sh
+python3 scripts/live_smoke.py
+```
+
+## Run all tests
+
+```bash
+python3 -m unittest discover -s tests -v
+```
+
+## Certification gate
+
+```bash
+python3 scripts/verify_release.py
 ```
 
 This runs:
-1. HydraDB container startup
-2. /readyz + /metrics health check
-3. OpenCypher roundtrip
-4. algo.MSpaths proof
-5. Unit tests
-6. Integration tests
-7. False-success benchmark
-8. Full demo
-9. Evidence hashing
-10. RUN_CERTIFICATE.json
+1. Compile check
+2. Unit tests
+3. JSON schema validation
+4. Deterministic demo
+5. Ledger verification
+6. Evidence hashing
 
 ## What you can verify offline
 

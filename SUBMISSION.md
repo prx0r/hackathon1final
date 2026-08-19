@@ -5,7 +5,7 @@
 | Field | Value |
 |-------|-------|
 | Title | Aletheia — Verified State Freshness for AI Agents |
-| Theme | Hack Hydra: Build |
+| Theme | OpenAIRE AI Hackathon: Build |
 | Team | Solo |
 
 ## What we built
@@ -20,13 +20,14 @@ Aletheia fills that gap.
 
 ## The demo (3 steps)
 
-1. Agent queries OpenAIRE, stores conclusion with dependencies
+1. Agent queries OpenAIRE via Alien MCP, stores conclusion with dependencies
 2. OpenAIRE changes, Aletheia detects affected conclusions
 3. Agent re-verifies affected conclusions, receipts signed
 
 ## Technical highlights
 
-- HydraDB as storage layer (not decoration)
+- OpenAIRE V3 adapter with source-health semantics
+- Content-addressed snapshots (JCS + SHA-256)
 - Ed25519 signed verification receipts
 - Frozen resolution plans
 - Deterministic before/after fixtures
@@ -36,7 +37,11 @@ Aletheia fills that gap.
 
 ## Sponsor integration
 
-HydraDB is the storage backbone. All state lives in the graph. OpenCypher queries for dependency traversal. algo.MSpaths for path verification. Bolt compatibility for client access. Without HydraDB, Aletheia cannot function.
+OpenAIRE provides the scholarly graph. Alien MCP provides agent access. Aletheia provides the continuity layer between them.
+
+The official OpenAIRE MCP through Alien is the AI discovery plane. Aletheia records what evidence the agent used, tracks dependencies, and detects when those dependencies change.
+
+Without OpenAIRE, there is no source data. Without Alien, there is no agent access. Without Aletheia, conclusions silently go stale.
 
 ## Limitations
 

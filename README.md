@@ -30,7 +30,7 @@ Agent queries OpenAIRE via Alien MCP
     conclusion returns to CURRENT
 ```
 
-**The agent cannot declare its own conclusions current.** Downstream actions consume only conclusions backed by a PASS verification receipt, never stale cached state.
+**The agent cannot declare its own conclusions current.** Downstream actions consume only conclusions backed by a verification receipt, never stale cached state.
 
 ---
 
@@ -46,7 +46,7 @@ OpenAIRE's August 2026 release added 6.43M products and removed 318.7M redundant
 
 Aletheia solves only that boundary.
 
-It does **not** replace OpenAIRE, Alien MCP, HydraDB, or any agent framework. It makes agent conclusions auditable against their evidence over time.
+It does **not** replace OpenAIRE, Alien MCP, or any agent framework. It makes agent conclusions auditable against their evidence over time.
 
 ---
 
@@ -89,25 +89,28 @@ All 6 conclusions now carry valid receipts.
 
 ---
 
-## Why HydraDB is essential
+## How Aletheia works
 
-Aletheia stores all state in HydraDB OSS:
+Aletheia stores all state using content-addressed hashing and an append-only event ledger.
 
-- Graph lineage (dependencies, receipts, claims)
-- Snapshot digests
-- Verification receipts with Ed25519 signatures
-- Append-only event history
+Core flow:
 
-HydraDB provides: snapshot-consistent OpenCypher, durable graph state, GraphBLAS-backed traversal, Bolt compatibility, native bounded path procedures.
-
-**The graph-level invariant:** every trusted conclusion has a path:
-
-```
-Conclusion
-  └─ VERIFIED_BY → PASS Receipt
-                      └─ VERIFIES → Snapshot
-                                      ├─ DEPENDS_ON → Evidence
-                                      └─ FROM → Query
+```text
+OpenAIRE observation
+     ↓
+canonical snapshot (JCS + SHA-256)
+     ↓
+TrackedClaim with explicit dependencies
+     ↓
+later: semantic diff against new state
+     ↓
+blast radius via dependency walk
+     ↓
+ImpactReport (affected vs unaffected)
+     ↓
+ProofObligation with frozen resolution plan
+     ↓
+VerificationReceipt (signed, tamper-evident)
 ```
 
 ---
@@ -116,17 +119,17 @@ Conclusion
 
 Four kinds of evidence:
 
-| Evidence | What it proves | Counts as live proof? |
-|----------|---------------|----------------------|
-| Unit tests | local policy/signature logic | No |
-| Deterministic fixtures | reproducible before/after | Partly |
-| HydraDB graph operations | real graph execution | Partly |
-| Full certification gate | HydraDB container + algo.MSpaths | **Yes** |
+| Evidence | What it proves | Counts as proof? |
+|----------|---------------|-----------------|
+| Unit tests | Local policy/signature logic | No |
+| Deterministic fixtures | Same input → same output | Partly |
+| OpenAIRE V3 API | Real graph execution | Partly |
+| Full certification | All checks + ledger integrity | **Yes** |
 
 There is intentionally:
 - No in-memory fallback
-- No skip-if-Hydra-absent in certification
-- No pass certificate if HydraDB was not run
+- No skip-if-source-absent in certification
+- No pass certificate if source was not queried
 - No claim that Ed25519 signature proves semantic correctness (it proves receipt integrity)
 
 ---
@@ -140,30 +143,33 @@ pip install -e '.[dev]'
 # Deterministic demo
 python3 -m aletheia.cli demo
 
-# Live certification (requires Docker)
-./scripts/certify.sh
+# Live OpenAIRE query
+python3 scripts/live_smoke.py
+
+# Run all tests
+python3 -m unittest discover -s tests -v
 ```
 
 ---
 
 ## What this unlocks
 
-Once "successful conclusion" means **verified conclusion**, the graph can support:
+Once "conclusion current" means **verified conclusion**, agents can:
 
-- routing by **cost per verified conclusion** rather than cost per call
-- self-healing workflows that retry verified failures
-- multi-step plans where next step requires verified predecessor
-- capability reputation computed from certified outcomes
-- audit questions: "why was this conclusion trusted?" via graph traversal
+- recompute only affected conclusions (not everything)
+- track freshness of persistent knowledge
+- verify conclusions from other agents before trusting them
+- build self-healing research workflows
+- audit: "why was this conclusion trusted?" via dependency graph
 
 ---
 
 ## Repository map
 
 ```
-src/aletheia/         core: models, engine, verifiers, receipts, Hydra client
+src/aletheia/         core: models, engine, verifiers, receipts, OpenAIRE client
 fixtures/             deterministic before/after snapshots
 tests/                policy, signature, integration
-scripts/              certification, smoke tests
+scripts/              certification, smoke tests, demos
 docs/                 architecture, evidence model, limitations
 ```
