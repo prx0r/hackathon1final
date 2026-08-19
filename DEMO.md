@@ -8,10 +8,10 @@ Run the deterministic demo (no Docker needed):
 python3 -m aletheia.cli demo
 ```
 
-Or the live version (Docker + HydraDB):
+Or the live version with real OpenAIRE queries:
 
 ```bash
-./scripts/certify.sh
+python3 scripts/live_smoke.py
 ```
 
 ## The script
