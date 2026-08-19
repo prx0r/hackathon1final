@@ -1,0 +1,31 @@
+{
+  "status": "PROVEN",
+  "python": "3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]",
+  "platform": "Linux-7.0.0-29-generic-x86_64-with-glibc2.43",
+  "checks": [
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "compileall",
+        "-q",
+        "patala_research_ci"
+      ],
+      "status": "PASS"
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "artifact_count": 64,
+  "artifact_set_hash": "0e243b331d80b603411c05718d3dcdc64917649e3877980c631648d2ad4eb03d"
+}

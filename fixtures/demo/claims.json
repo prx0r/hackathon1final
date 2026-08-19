@@ -1,0 +1,84 @@
+{
+  "claims": [
+    {
+      "baseline_supported": null,
+      "baseline_value": null,
+      "claim_id": "claim:dataset-linkage",
+      "computation": {
+        "op": ">=",
+        "relation": "Cites",
+        "target_type": "Dataset",
+        "threshold": 0.6,
+        "type": "ratio_relation"
+      },
+      "dependencies": [
+        {
+          "entity_id": null,
+          "field_path": null,
+          "kind": "query_membership",
+          "relation": null,
+          "source": null,
+          "target": null
+        },
+        {
+          "entity_id": null,
+          "field_path": null,
+          "kind": "relation",
+          "relation": "Cites",
+          "source": null,
+          "target": null
+        }
+      ],
+      "state": "CURRENT",
+      "text": "At least 60% of tracked software outputs have a dataset relation."
+    },
+    {
+      "baseline_supported": null,
+      "baseline_value": null,
+      "claim_id": "claim:open-access",
+      "computation": {
+        "denominator": {
+          "equals": "software",
+          "field": "type"
+        },
+        "numerator": {
+          "equals": "Open Access",
+          "field": "access_right"
+        },
+        "op": ">=",
+        "threshold": 0.5,
+        "type": "ratio"
+      },
+      "dependencies": [
+        {
+          "entity_id": null,
+          "field_path": null,
+          "kind": "query_membership",
+          "relation": null,
+          "source": null,
+          "target": null
+        }
+      ],
+      "state": "CURRENT",
+      "text": "At least half of tracked software outputs are openly accessible."
+    },
+    {
+      "baseline_supported": null,
+      "baseline_value": null,
+      "claim_id": "claim:s2-dataset",
+      "computation": null,
+      "dependencies": [
+        {
+          "entity_id": null,
+          "field_path": null,
+          "kind": "relation",
+          "relation": "Cites",
+          "source": "10.1234/s2",
+          "target": "10.9999/d2"
+        }
+      ],
+      "state": "CURRENT",
+      "text": "Software Two is linked to dataset 10.9999/d2."
+    }
+  ]
+}

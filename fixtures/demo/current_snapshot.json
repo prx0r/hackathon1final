@@ -1,0 +1,154 @@
+{
+  "api_version": "v3",
+  "digest": "sha256:3994e65d553dd9ae25bb23aa882da33fc0d707470a12fa5ab4a9ffba4797e5e1",
+  "header": {
+    "numFound": 4
+  },
+  "items": [
+    {
+      "access_right": "Open Access",
+      "authors": [
+        {
+          "institutions": [],
+          "name": "Example Author",
+          "orcid": null
+        }
+      ],
+      "entity_type": "research-products",
+      "grants": [],
+      "id": "oa:s1",
+      "is_corrected": false,
+      "is_peer_reviewed": false,
+      "is_retracted": false,
+      "language": "English",
+      "pids": [
+        {
+          "scheme": "doi",
+          "value": "10.1234/s1"
+        }
+      ],
+      "publication_date": "2026-01-01",
+      "publisher": "Example Repository",
+      "raw_digest": "sha256:raw-oa:s1",
+      "title": "Reusable Software One",
+      "type": "software"
+    },
+    {
+      "access_right": "Open Access",
+      "authors": [
+        {
+          "institutions": [],
+          "name": "Example Author",
+          "orcid": null
+        }
+      ],
+      "entity_type": "research-products",
+      "grants": [],
+      "id": "oa:s2",
+      "is_corrected": false,
+      "is_peer_reviewed": false,
+      "is_retracted": false,
+      "language": "English",
+      "pids": [
+        {
+          "scheme": "doi",
+          "value": "10.1234/s2"
+        }
+      ],
+      "publication_date": "2026-01-01",
+      "publisher": "Example Repository",
+      "raw_digest": "sha256:raw-oa:s2",
+      "title": "Reusable Software Two",
+      "type": "software"
+    },
+    {
+      "access_right": "Closed Access",
+      "authors": [
+        {
+          "institutions": [],
+          "name": "Example Author",
+          "orcid": null
+        }
+      ],
+      "entity_type": "research-products",
+      "grants": [],
+      "id": "oa:s3",
+      "is_corrected": false,
+      "is_peer_reviewed": false,
+      "is_retracted": false,
+      "language": "English",
+      "pids": [
+        {
+          "scheme": "doi",
+          "value": "10.1234/s3"
+        }
+      ],
+      "publication_date": "2026-01-01",
+      "publisher": "Example Repository",
+      "raw_digest": "sha256:raw-oa:s3",
+      "title": "Reusable Software Three — metadata normalized",
+      "type": "software"
+    },
+    {
+      "access_right": "Open Access",
+      "authors": [
+        {
+          "institutions": [],
+          "name": "Example Author",
+          "orcid": null
+        }
+      ],
+      "entity_type": "research-products",
+      "grants": [],
+      "id": "oa:s4",
+      "is_corrected": false,
+      "is_peer_reviewed": false,
+      "is_retracted": false,
+      "language": "English",
+      "pids": [
+        {
+          "scheme": "doi",
+          "value": "10.1234/s4"
+        }
+      ],
+      "publication_date": "2026-01-01",
+      "publisher": "Example Repository",
+      "raw_digest": "sha256:raw-oa:s4",
+      "title": "Reusable Software Four",
+      "type": "software"
+    }
+  ],
+  "observed_at": "2026-08-19T00:00:00Z",
+  "provider": "openaire",
+  "query": {
+    "api_version": "v3",
+    "entity": "research-products",
+    "facets": [],
+    "filters": {
+      "type": "software"
+    },
+    "include_scholexplorer": true,
+    "max_pages": 1,
+    "page_size": 25,
+    "scholexplorer_relation": null,
+    "search": "research software",
+    "select": []
+  },
+  "raw_digest": null,
+  "relations": [
+    {
+      "raw_digest": "sha256:r1",
+      "relation": "Cites",
+      "source": "10.1234/s1",
+      "source_publisher": null,
+      "source_type": "Software",
+      "subtype": "cites",
+      "target": "10.9999/d1",
+      "target_publisher": null,
+      "target_type": "Dataset"
+    }
+  ],
+  "snapshot_id": "snapshot:demo-current",
+  "source_error": null,
+  "source_status": "OK"
+}

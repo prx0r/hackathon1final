@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "patala-research-ci"
+version = "0.4.0"
+description = "Continuous verification for research built on evolving scholarly knowledge graphs"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Tom Prior"}]
+keywords = ["OpenAIRE", "open-science", "provenance", "research-intelligence", "continuous-verification"]
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.0"]
+crypto = ["cryptography>=41.0"]
+dev = []
+
+[project.scripts]
+patala-ci = "patala_research_ci.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["patala_research_ci*"]

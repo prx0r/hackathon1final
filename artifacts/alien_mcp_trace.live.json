@@ -1,0 +1,201 @@
+{
+  "schema": "https://patala.dev/schemas/mcp-trace-v1",
+  "trace_id": "mcp:alien-openaire-live-20260819",
+  "provider": "Alien Intelligence",
+  "connector": "OpenAIRE MCP",
+  "captured_at": "2026-08-19T05:30:00Z",
+  "client": "Alien OpenAIRE demo",
+  "session_label": "Śaivism/Tantrāloka consciousness science search",
+  "synthetic": false,
+  "calls": [
+    {
+      "tool_name": "Search Research Products",
+      "arguments": {
+        "query": "Tantraloka Saivism consciousness",
+        "type": ["publication"],
+        "page_size": 10
+      },
+      "result": {
+        "success": true,
+        "results": [],
+        "pagination": {"total": 0}
+      },
+      "called_at": "2026-08-19T05:28:00Z",
+      "openaire_ids": [],
+      "notes": "Initial specific query — too narrow, returned 0 results"
+    },
+    {
+      "tool_name": "Search Research Products",
+      "arguments": {
+        "query": "Kashmir Shaivism consciousness science",
+        "type": ["publication"],
+        "sort_by": "publicationDate DESC",
+        "page_size": 10
+      },
+      "result": {
+        "success": true,
+        "results_count": 5,
+        "sample_ids": [
+          "doi_________::55183b2ed391d10578",
+          "doi_________::48e8bfa36c8def767f",
+          "doi_dedup___::25b6bc975c3c7b06cc"
+        ]
+      },
+      "called_at": "2026-08-19T05:28:30Z",
+      "openaire_ids": [
+        "doi_________::55183b2ed391d10578",
+        "doi_________::48e8bfa36c8def767f",
+        "doi_dedup___::25b6bc975c3c7b06cc"
+      ],
+      "notes": "Widened query — returned results"
+    },
+    {
+      "tool_name": "Search Research Products",
+      "arguments": {
+        "query": "Abhinavagupta philosophy consciousness",
+        "type": ["publication"],
+        "sort_by": "publicationDate DESC",
+        "page_size": 10
+      },
+      "result": {
+        "success": true,
+        "results_count": 3
+      },
+      "called_at": "2026-08-19T05:29:00Z",
+      "openaire_ids": [],
+      "notes": "Alternative spelling query"
+    },
+    {
+      "tool_name": "Get Research Product Details",
+      "arguments": {
+        "identifier": "10.1093/oso/9780197643075.001.0001"
+      },
+      "result": {
+        "success": true,
+        "id": "doi_dedup___::25b6bc975c3c7b06cc",
+        "title": "The Matter of Wonder",
+        "authors": ["Loriliai Biernacki"],
+        "type": "publication",
+        "access_right": "CLOSED",
+        "citations": 6,
+        "peer_reviewed": true
+      },
+      "called_at": "2026-08-19T05:29:15Z",
+      "openaire_ids": ["doi_dedup___::25b6bc975c3c7b06cc"],
+      "notes": "Most-cited work in set"
+    },
+    {
+      "tool_name": "Get Research Product Details",
+      "arguments": {
+        "identifier": "10.1093/oxfordhb/9780197549889.013.7"
+      },
+      "result": {
+        "success": true,
+        "id": "doi_________::48e8bfa36c8def767f",
+        "title": "Cosmic Process, Philosophy, and Soteriology in the Works of Abhinavagupta",
+        "authors": ["Sthaneshwar Timalsina"],
+        "type": "publication",
+        "peer_reviewed": true
+      },
+      "called_at": "2026-08-19T05:29:30Z",
+      "openaire_ids": ["doi_________::48e8bfa36c8def767f"],
+      "notes": "Oxford handbook chapter"
+    },
+    {
+      "tool_name": "Get Research Product Details",
+      "arguments": {
+        "identifier": "10.5617/ao.9395"
+      },
+      "result": {
+        "success": true,
+        "id": "doi_________::3d12f465bd02812486",
+        "title": "Vimarśa: The Concept of Reflexivity in the Philosophy of Utpala and Abhinavagupta",
+        "authors": ["Sthaneshwar Timalsina"],
+        "type": "publication",
+        "peer_reviewed": true
+      },
+      "called_at": "2026-08-19T05:29:45Z",
+      "openaire_ids": ["doi_________::3d12f465bd02812486"],
+      "notes": "Key vimarśa paper"
+    },
+    {
+      "tool_name": "Get Research Product Details",
+      "arguments": {
+        "identifier": "10.5281/zenodo.21076939"
+      },
+      "result": {
+        "success": true,
+        "id": "doi_________::fb57a6ae301f7de69b",
+        "title": "Rasa as Aesthetic Consciousness: Abhinavagupta, Advaita Vedānta, and the Phenomenology of Non-Dual Experience",
+        "authors": ["Satish Kumar Singh"],
+        "type": "publication",
+        "access_right": "OPEN"
+      },
+      "called_at": "2026-08-19T05:30:00Z",
+      "openaire_ids": ["doi_________::fb57a6ae301f7de69b"],
+      "notes": "Most recent (2026)"
+    },
+    {
+      "tool_name": "Get Research Product Details",
+      "arguments": {
+        "identifier": "10.5281/zenodo.17529633"
+      },
+      "result": {
+        "success": true,
+        "id": "doi_________::fb57a6ae301f7de69b",
+        "title": "Rasa as Aesthetic Consciousness",
+        "authors": ["Satish Kumar Singh"]
+      },
+      "called_at": "2026-08-19T05:30:15Z",
+      "openaire_ids": ["doi_________::fb57a6ae301f7de69b"],
+      "notes": "Additional details"
+    },
+    {
+      "tool_name": "Search Research Products",
+      "arguments": {
+        "query": "pratyabhijna recognition philosophy consciousness",
+        "type": ["publication"],
+        "sort_by": "publicationDate DESC",
+        "page_size": 10
+      },
+      "result": {
+        "success": true,
+        "results_count": 2
+      },
+      "called_at": "2026-08-19T05:30:30Z",
+      "openaire_ids": [],
+      "notes": "Pratyabhijñā search"
+    },
+    {
+      "tool_name": "Search Research Products",
+      "arguments": {
+        "query": "Tantraloka Shaiva tantra",
+        "sort_by": "publicationDate DESC",
+        "page_size": 10
+      },
+      "result": {
+        "success": true,
+        "results_count": 1
+      },
+      "called_at": "2026-08-19T05:30:45Z",
+      "openaire_ids": [],
+      "notes": "Direct Tantrāloka search"
+    },
+    {
+      "tool_name": "Analyze Research Trends",
+      "arguments": {
+        "search": "Saivism consciousness",
+        "from_year": 2015,
+        "to_year": 2026
+      },
+      "result": {
+        "success": true,
+        "total_publications": 12,
+        "period": "2015-2026"
+      },
+      "called_at": "2026-08-19T05:31:00Z",
+      "openaire_ids": [],
+      "notes": "Trend analysis"
+    }
+  ]
+}
