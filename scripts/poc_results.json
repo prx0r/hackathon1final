@@ -6,9 +6,9 @@
       "digest": "sha256:929ab4ec103b4f0a38bd591cb615adcdb7a1b69977d97b913d95673d78eafa4c"
     },
     "open-science": {
-      "total": 852,
+      "total": 853,
       "count": 15,
-      "digest": "sha256:4bca1a8a0b5b051be3a60eaae5dd299fa96abc46e4159836915a4346889db919"
+      "digest": "sha256:f4988d91e5db34b95d0362d102e32811566f88ef5f4281a38e7b11fb816f00d1"
     },
     "nlp-tools": {
       "total": 125118,
@@ -20,7 +20,8 @@
   "claims": 6,
   "changes_applied": 10,
   "change_scenarios": {
-    "affiliation_expansion": 5,
+    "affiliation_expansion": 4,
+    "metadata_enrichment": 1,
     "dedup_merge": 2,
     "new_products": 3
   },
