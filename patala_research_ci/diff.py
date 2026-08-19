@@ -40,7 +40,36 @@ def classify_materiality(path: str, before: Any, after: Any) -> str:
 
 
 def _relation_key(r: dict[str, Any]) -> tuple[str, str, str, str]:
-    return (str(r.get("source") or ""), str(r.get("relation") or ""), str(r.get("target") or ""), str(r.get("subtype") or ""))
+    """Canonical relation key.
+
+    Critical: IsCitedBy(A, B) ≡ Cites(B, A).
+    This prevents false invalidations when OpenAIRE remaps relations.
+    """
+    source = str(r.get("source") or "")
+    relation = str(r.get("relation") or "")
+    target = str(r.get("target") or "")
+    subtype = str(r.get("subtype") or "")
+
+    # Canonical form: Cites is always (citer, cited)
+    # IsCitedBy(A, B) → Cites(B, A)
+    INVERSE_MAP = {
+        "IsCitedBy": "Cites",
+        "IsReferencedBy": "References",
+        "IsSupplementedBy": "IsSupplementTo",
+        "IsDerivedFrom": "IsSourceOf",
+        "IsRequiredBy": "Requires",
+        "IsCompiledBy": "Compiles",
+        "IsReviewedBy": "Reviews",
+        "IsDocumentedBy": "Documents",
+        "IsDescribedBy": "Describes",
+        "IsObsoletedBy": "Obsoletes",
+        "IsVersionOf": "HasVersion",
+        "IsContinuedBy": "Continues",
+    }
+
+    if relation in INVERSE_MAP:
+        return (target, INVERSE_MAP[relation], source, subtype)
+    return (source, relation, target, subtype)
 
 
 def diff_snapshots(analysis_id: str, old: Snapshot, new: Snapshot) -> SemanticDiff:
